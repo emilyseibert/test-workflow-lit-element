@@ -8,8 +8,7 @@
   "module": "index.js",
   "scripts": {
     "start": "es-dev-server --app-index demo/index.html --node-resolve --open --watch",
-    "test": "karma start karma.conf.js",
-    "codecov": "codecov",
+    "test": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false"
   },
   "dependencies": {
@@ -19,11 +18,9 @@
   "devDependencies": {
     "@open-wc/testing": "^2.0.0",
     "@open-wc/testing-karma": "^3.0.0",
-    "codecov": "^3.7.2",
     "deepmerge": "^3.2.0",
     "es-dev-server": "^1.23.0",
     "karma": "^5.1.1",
-    "karma-coverage": "^2.0.3",
     "sinon": "^9.0.3"
   }
 }

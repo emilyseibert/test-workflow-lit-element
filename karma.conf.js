@@ -20,16 +20,6 @@ module.exports = (config) => {
       esm: {
         nodeResolve: true,
       },
-
-      preprocessor: {
-        "src/**/*.js": ["coverage"],
-      },
-
-      reporters: ["progress", "coverage"],
-
-      coverageReporter: {
-        reporters: [{ type: "lcov" }],
-      },
       // you can overwrite/extend the config further
     })
   );
