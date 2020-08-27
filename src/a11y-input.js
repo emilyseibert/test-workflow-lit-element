@@ -8,11 +8,14 @@ export class A11yInput extends LitElement {
     };
   }
 
+  log(msg) {
+    console.log(msg);
+  }
+
   set value(newValue) {
     const oldValue = this.value;
-
     if (newValue === "cat") {
-      console.log("we also like cats");
+      this.log("we also like cats");
     } else {
       // must set to a different variable name (as compared to property), or it will trigger the setter function to fire repeatedly
       this.__value = newValue;
@@ -52,8 +55,6 @@ export class A11yInput extends LitElement {
 
     this.inputEl = document.createElement("input");
     this.inputEl.setAttribute("slot", "input");
-    // this.value here calls the getter which gets the value at this.__value
-    this.inputEl.setAttribute("value", this.value);
     this.appendChild(this.inputEl);
   }
 

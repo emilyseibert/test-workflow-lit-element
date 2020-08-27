@@ -1,5 +1,5 @@
 import { html, fixture, expect } from "@open-wc/testing";
-
+import sinon from "sinon";
 import "../src/a11y-input.js";
 
 describe("A11yInput", () => {
@@ -23,13 +23,8 @@ describe("A11yInput", () => {
     `));
     expect(el).lightDom.to.equal(`
     <label slot="label">foo</label>
-    <input slot="input" value="">
+    <input slot="input">
   `);
-  });
-
-  it("can set/get the input value directly via the custom element", async () => {
-    const el = await fixture(html` <a11y-input .value=${"foo"}></a11y-input> `);
-    expect(el.inputEl.value).to.equal("foo");
   });
 
   it("it can set/get the value property directly via the custom element", async () => {
@@ -38,8 +33,20 @@ describe("A11yInput", () => {
   });
 
   it('logs "we also like cats" if property value is "cat"', async () => {
-    const el = await fixture(html` <a11y-input .value=${"cat"}></a11y-input> `);
+    const el = await fixture(html` <a11y-input></a11y-input> `);
+    const logSpy = sinon.spy(el, "log");
+
+    el.value = "cat";
+    expect(logSpy.callCount).to.equal(1);
+    expect(logSpy.calledWith("we also like cats")).to.be.true;
+
+    el.value = "dog";
+    expect(logSpy.callCount).to.equal(1);
+
+    el.value = "cat";
+    expect(logSpy.callCount).to.equal(2);
   });
+
   it("can update its label", async () => {
     const el = /** @type {A11yInput} */ (await fixture(
       '<a11y-input label="foo"></a11y-input>'
