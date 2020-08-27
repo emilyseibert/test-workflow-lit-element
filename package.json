@@ -8,7 +8,7 @@
   "module": "index.js",
   "scripts": {
     "start": "es-dev-server --app-index demo/index.html --node-resolve --open --watch",
-    "test": "karma start karama.conf.js",
+    "test": "karma start karma.conf.js",
     "codecov": "codecov",
     "test:watch": "karma start --auto-watch=true --single-run=false"
   },
