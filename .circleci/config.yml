@@ -6,5 +6,8 @@ workflows:
     jobs:
       - node/test
 test:
-  post:
+  environment: 
+    - CHROME_BIN: "/usr/bin/google-chrome"
+  run:
+    - npm run test
     - npm run codecov
