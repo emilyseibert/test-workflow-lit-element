@@ -1,6 +1,11 @@
-# \<a11y-input>
+# test-workflow-lit-element - \<a11y-input>
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendations, which links to [this tutorial](https://dev.to/open-wc/testing-workflow-for-web-components-g73). This project follows the tutorial and also provides modern revisions based on recent changes in LitElement rendering of LifeCycle. 
+
+Somethings of note:
+* testing uses open-wc/testing lib _heavily_, but also incorporates Mocha,Chai and renders with Karma. 
+* browser inspections with `debugger` is available at "http://localhost:9876/debug.html" when running `npm run test:watch` with karma
+* coverage recommendations with Karma are generated when you run `npm run test`. In the terminal, you can see a quick summary of coverage of your components. In the browser, you can see recommendations for where to add additional tests by running `open coverage/index.html` (the file is generated when running `npm run test`). 
 
 ## Installation
 ```bash
@@ -40,4 +45,3 @@ If you customize the configuration a lot, you can consider moving them to indivi
 npm start
 ```
 To run a local development server that serves the basic demo located in `demo/index.html`
-# test-workflow-lit-element
